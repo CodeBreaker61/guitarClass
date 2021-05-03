@@ -117,6 +117,37 @@ class Home extends Component {
     this.toggleAddModal(true);
   };
 
+  zoomPic = (e) => {
+    if (e.target.style.position == "") {
+      e.target.style.position = "fixed";
+      e.target.style.width = "700px";
+      e.target.style.top = "25%";
+      e.target.style.left = "25%";
+      e.target.style.right = "25%";
+      e.target.style.zIndex = "1";
+      e.target.style.alignSelf = "center";
+      e.target.style.height = "auto";
+    } else {
+      e.target.style = {};
+    }
+  };
+
+  downloadFile(e, post, img) {
+    let objectURL;
+    if (objectURL) {
+      // revoke the old object url to avoid using more memory than needed
+      URL.revokeObjectURL(objectURL);
+    }
+    let file = this.state.data[post].files[img];
+
+    objectURL = Object.keys(file).includes("0")
+      ? file
+      : URL.createObjectURL(file);
+
+    e.target.download = file.name ? file.name : img; // this name is used when the user downloads the file
+    e.target.href = objectURL;
+  }
+
   render() {
     return (
       <div className="sa-home-w">
@@ -151,17 +182,48 @@ class Home extends Component {
                     {e.files &&
                       e.files.map((f, ind) => {
                         return (
-                          <img
-                            className="eachFile"
-                            src={
-                              Object.keys(f).includes("0")
-                                ? f
-                                : URL.createObjectURL(f)
-                            }
-                            alt={f.name}
-                            key={ind}
-                            download
-                          />
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              padding: "10px",
+                              maxHeight: "125px",
+                              maxWidth: "100px",
+                              overflow: "hidden",
+                            }}
+                          >
+                            <img
+                              className="eachFile"
+                              src={
+                                f.type && !f.type.includes("image")
+                                  ? getImg(
+                                      "600px-Generic_File_OneDrive_icon.png"
+                                    )
+                                  : Object.keys(f).includes("0")
+                                  ? f
+                                  : URL.createObjectURL(f)
+                              }
+                              onClick={(e) => this.zoomPic(e)}
+                              alt={f.name}
+                              key={ind}
+                            />
+                            <a
+                              style={{
+                                width: "75px",
+                                fontSize: "s",
+                                textAlign: "center",
+                              }}
+                              onClick={(e) => this.downloadFile(e, i, ind)}
+                              download
+                            >
+                              {f.name
+                                ? f.name
+                                : f.type
+                                ? f.type + " " + ind
+                                : ind}
+                            </a>
+                          </div>
                         );
                       })}
                   </div>

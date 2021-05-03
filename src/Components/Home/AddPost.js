@@ -92,7 +92,9 @@ class AddPost extends Component {
                       <img
                         className="eachFile"
                         src={
-                          Object.keys(f).includes("0")
+                          f.type && !f.type.includes("image")
+                            ? getImg("600px-Generic_File_OneDrive_icon.png")
+                            : Object.keys(f).includes("0")
                             ? f
                             : URL.createObjectURL(f)
                         }
