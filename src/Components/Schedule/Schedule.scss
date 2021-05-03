@@ -1,0 +1,128 @@
+.sa-schedule-w {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .students {
+    width: 210px;
+    max-width: 100%;
+    padding: 20px;
+    max-height: 90vh;
+    height: 100vh;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    background: #f4e991;
+
+    .studentHead {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-align: center;
+      color: #343434;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #c2c2c2;
+    }
+    .studentGroup {
+      display: flex;
+      flex-direction: column;
+      margin-top: 15px;
+      .eachStudent {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 3px 1px #c2c2c2;
+        margin-bottom: 10px;
+        border: none;
+        width: 90%;
+        max-width: 265px;
+      }
+    }
+  }
+  .timeTable {
+    margin-top: 20px;
+    min-width: calc(100% - 280px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .timeTableHead {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      color: #343434;
+      padding-bottom: 15px;
+
+      div {
+        display: flex;
+        align-items: center;
+        width: 35%;
+        justify-content: space-between;
+
+        .groupPalette {
+          background: green;
+          height: 1rem;
+          width: 100px;
+        }
+      }
+    }
+    table {
+      border: 2px solid;
+      border-collapse: collapse;
+      border: solid 1px;
+      width: 15vh;
+      max-width: 100%;
+      min-width: -moz-fit-content;
+      min-width: fit-content;
+      tr {
+      }
+      td,
+      th {
+        height: 125px;
+        border: solid 1px;
+        width: 100vw;
+        max-width: 25vw;
+        max-height: 70vh;
+        min-width: -moz-fit-content;
+        min-width: fit-content;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .sa-schedule-w {
+    .students {
+      width: 100%;
+      height: fit-content;
+      max-height: 300px;
+      .studentGroup {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        max-height: 191px;
+        overflow-y: scroll;
+
+        .eachStudent {
+          width: 100% !important;
+          max-width: 300px !important;
+        }
+      }
+    }
+    .timeTable {
+      width: 100vw;
+    }
+    table {
+      tr {
+      }
+      td,
+      th {
+        width: 25vw;
+      }
+    }
+  }
+}

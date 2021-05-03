@@ -1,0 +1,36 @@
+.sa-dl-w {
+  display: flex;
+}
+
+.sa-dl-w > .sa-dl-left {
+  width: 420px;
+  height: 100vh;
+  background: #d98c3d;
+  /* z-index: 999999; */
+}
+
+.sa-dl-w > .sa-dl-right {
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  flex-wrap: wrap;
+}
+
+.sa-dl-w > .sa-dl-right > .sa-dl-right-content {
+  position: relative;
+  padding: 25px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 920px) {
+  .sa-dl-w > .sa-dl-left {
+    width: 245px;
+    height: calc(100vh - 60px);
+    top: 60px;
+    position: absolute;
+    visibility: visible;
+    z-index: 1;
+    background: #d98c3d;
+  }
+}

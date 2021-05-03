@@ -1,0 +1,68 @@
+.sa-sidenav-w {
+  width: 100%;
+  height: 100%;
+  border-right: solid 1px #d9d9d9;
+  box-sizing: border-box;
+}
+
+.sa-sidenav-w > .logo {
+  margin: 0 10px 0 10px;
+  border-bottom: solid 1px #eaeaea;
+  padding-top: 20px;
+  padding-bottom: 11px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-align: center;
+  color: #343434;
+}
+
+.sa-sidenav-w > .greeting {
+  margin: 0 10px 37.6px 10px;
+  padding-top: 33px;
+  flex-wrap: wrap;
+}
+
+.sa-sidenav-w > .greeting > div {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-align: center;
+  color: #343434;
+}
+.sa-sidenav-w > .sa-menu {
+  padding: 0px 25px;
+}
+
+.sa-sidenav-w > .sa-menu > .sa-menu-link {
+  display: flex;
+  align-items: center;
+  background-color: #d98c3d;
+  border-left: 3px solid #fff;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  letter-spacing: 0.53px;
+  color: #343434;
+  font-weight: normal;
+  padding: 8px 17px 8px 20px;
+  cursor: pointer;
+}
+
+.sa-sidenav-w > .sa-menu > .sa-menu-link:hover,
+.sa-sidenav-w > .sa-menu > .sa-menu-link.selected {
+  font-weight: bold;
+  background-color: #d9d9d9;
+  border-left: 3px solid #542e91;
+}
+
+.sa-sidenav-w > .sa-menu > .sa-menu-link > img {
+  margin-right: 20px;
+  height: 20px;
+}
+
+.sa-sidenav-w > .sa-menu > .sa-menu-link > div {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}

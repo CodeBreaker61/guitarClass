@@ -1,0 +1,97 @@
+.sa-login-w {
+  width: 100%;
+  background-image: url("./../../assets/images/guitarBack.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: unset;
+  background-color: #ddd !important;
+  border: #ddd !important;
+  color: #fff !important;
+}
+
+.form-container {
+  width: 35%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container-box {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container {
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 40px;
+  /* max-width: 109px; */
+  align-items: center;
+}
+
+.welcome-text {
+  font-size: 32px;
+  font-weight: bold;
+  /* line-height: 0.9;
+  letter-spacing: -3.7px; */
+  text-align: center;
+  color: black;
+  padding: 0rem 1.25rem 1.25rem 1.25rem;
+  margin-top: 17px;
+}
+
+.login-screen,
+.fp-screen {
+  position: relative;
+  height: calc(70vh);
+  padding: 3rem 6rem 0rem 6rem;
+}
+
+.login-input {
+  object-fit: contain;
+  border-radius: 130px;
+  background-color: #ffffffcc;
+  border: solid 2px #dbdbdb;
+  margin-bottom: 3%;
+  width: 90%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.login-input::placeholder {
+  opacity: 0.5;
+  font-size: 14px;
+  color: #474747;
+}
+.clickable {
+  cursor: pointer;
+}
+
+.sa-login-btn {
+  object-fit: contain;
+  border-radius: 130px;
+  margin-bottom: 3%;
+  width: 96%;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #d98c3d;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

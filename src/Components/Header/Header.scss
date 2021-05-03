@@ -1,0 +1,58 @@
+.sa-header-w {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  background: #d98c3d;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  box-sizing: border-box;
+  border-bottom: solid 2px #eaeaea;
+}
+
+.sa-header-w > .sa-header-tabs-w {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .menu {
+    cursor: pointer;
+    pointer-events: all;
+    width: 20px;
+  }
+
+  .heading {
+    align-self: center;
+    justify-self: center;
+    margin-right: 30%;
+    font-weight: 600;
+  }
+}
+
+.sa-header-w > .sa-header-tabs-w > .sa-header-tab {
+  font-size: 14px;
+  font-weight: normal;
+  color: #343434;
+  border-bottom: 3px solid #fff;
+  height: calc(100% - 3px);
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.sa-header-w > .sa-header-tabs-w > .sa-header-tab:hover,
+.sa-header-w > .sa-header-tabs-w > .sa-header-tab.selected {
+  font-weight: bold;
+  border-bottom: 3px solid #542e91;
+}
+
+.sa-header-w > .sa-header-profile-section {
+  height: 25px;
+  width: 100px;
+  text-align: center;
+  border: 2px solid #eaeaea;
+  font-size: 17px;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
