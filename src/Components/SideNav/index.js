@@ -12,7 +12,11 @@ const SideNav = (props) => {
   React.useEffect(() => {
     if (selectedMenuItem == "") {
       // setTimeout(() => {
-      setSelectedMenuItem("users");
+      if (history.location.pathname.includes("schedule")) {
+        setSelectedMenuItem("schedule");
+      } else {
+        setSelectedMenuItem("users");
+      }
       // history.push("/users");
       // }, 500);
     }

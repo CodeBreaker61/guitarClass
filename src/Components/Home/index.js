@@ -18,6 +18,7 @@ class Home extends Component {
       data: [],
       addModal: false,
       template: { heading: "", data: "", files: [] },
+      toEdit: null,
     };
   }
   componentDidMount() {
@@ -103,16 +104,44 @@ class Home extends Component {
     this.toggleAddModal(false);
   };
 
+  editPost = (head, body, attach) => {
+    let f = JSON.stringify(body).split("\\n");
+    let h;
+    console.log(f);
+    h = "<p>" + f.join("</p><p>").trim('"').slice(1, -1) + "</p>";
+
+    let y = this.state.data;
+    let i = this.state.toEdit;
+
+    y[i].heading = head;
+    y[i].date = new Date().toGMTString();
+    y[i].data = h;
+    y[i].files = attach;
+    this.setState({
+      data: y,
+      toEdit: null,
+      template: { heading: "", data: "", files: [] },
+    });
+    this.toggleAddModal(false);
+  };
+
   toggleEditModal = (id) => {
     let x = this.state.template;
-    let f = this.state.data.map((e) => {
-      if (e.id == id) return e;
+    let f = [];
+    let g = [];
+    this.state.data.map((e, i) => {
+      if (e.id == id) {
+        f = e;
+        g = i;
+      }
     });
-    x.heading = f[0].heading;
-    x.data = f[0].data;
-    x.files.push(f[0].files);
+
+    x.heading = f.heading;
+    x.data = f.data;
+    x.files.push(f.files);
     this.setState({
       template: x,
+      toEdit: g,
     });
     this.toggleAddModal(true);
   };
@@ -273,6 +302,8 @@ class Home extends Component {
             addPost={this.addPost.bind(this)}
             template={this.state.template}
             toggleAddModal={this.toggleAddModal.bind(this)}
+            editPost={this.editPost.bind(this)}
+            toEdit={this.state.toEdit}
           />
         ) : null}
       </div>

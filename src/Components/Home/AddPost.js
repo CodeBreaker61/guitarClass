@@ -11,11 +11,19 @@ class AddPost extends Component {
   }
 
   handleSubmit() {
-    this.props.addPost(
-      document.getElementById("postHead").value,
-      document.getElementById("postData").value,
-      this.state.file
-    );
+    if (this.props.toEdit !== null) {
+      this.props.editPost(
+        document.getElementById("postHead").value,
+        document.getElementById("postData").value,
+        this.state.file
+      );
+    } else {
+      this.props.addPost(
+        document.getElementById("postHead").value,
+        document.getElementById("postData").value,
+        this.state.file
+      );
+    }
   }
 
   handleUpload(item) {
@@ -116,7 +124,7 @@ class AddPost extends Component {
             className="sa-login-btn"
             onClick={() => this.handleSubmit()}
           >
-            Add Post
+            {this.props.toEdit !== null ? "Edit Post" : "Add Post"}
           </button>
         </div>
       </div>
