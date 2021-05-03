@@ -41,7 +41,10 @@ class Content extends Component {
           <div className="sa-content-w">
             <Switch>
               <Route exact path="/users">
-                <Home isLoggedIn={this.props.isLoggedIn} />
+                <Home
+                  isLoggedIn={this.props.isLoggedIn}
+                  userName={this.props.userName}
+                />
               </Route>
               <Route exact path="/users/schedule">
                 <Schedule isLoggedIn={this.props.isLoggedIn} />

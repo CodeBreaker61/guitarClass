@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple dashboard to be used by a guitar instructor and his students
 
-## Available Scripts
+# Installation and Setup
 
-In the project directory, you can run:
+Clone down this repository.
 
-### `yarn start`
+**!!!You will need node and npm installed globally on your machine.!!!**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open Repository in terminal
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+yarn install/ npm install
 
-### `yarn test`
+# To Start Server:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+yarn start/ npm start
 
-### `yarn build`
+# To Visit App:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+localhost:3000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Funtionalities
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Login
 
-### `yarn eject`
+We are operating under the assumption that the database will store two different types of users, Teachers and Students.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Using a teachers username/password will log you into the admin mode of the dashboard.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Using a student username/password will log you into the regular mode of dashboard.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Components
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Side Navigation - Allows navigation to different screens and includes the logout button.
 
-## Learn More
+Main Screen - The data and elements of different screens is viewed here.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Screens
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Home - The default screen shows the posts added by the teacher, which can be commented on by both teachers and students.
 
-### Code Splitting
+Schedule - The screen shows a time table for classes scheduled for the week based on groups (Red, Green, Blue, Yellow), into which the students are divided.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**!!!Here only username is relevant, password can be gibberish. Please use (username:jithin, password:xxxx) to log into admin mode**
+**and (username:xxxx, password:xxxx) to log into student mode.!!!**
 
-### Analyzing the Bundle Size
+# Shared Functionalities
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+There 3 action functionalities common to both modes which all occur in Home Screen:
 
-### Making a Progressive Web App
+Comments can be added to every post.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Clicking on an image attached to a post will enlarge it. Clicking it again will minimize it. (WILL NOT WORK ON NON-IMAGE FILES).
 
-### Advanced Configuration
+Clicking on the link below the attached files will download those files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Student Mode
 
-### Deployment
+The student mode has no unique action functionalities.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+However the schedule screen will show to what group that student belongs.
 
-### `yarn build` fails to minify
+# Admin Mode - Home Screen
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A post with the lesson and accompanying materials can be added by clicking the '+' icon in the bottom right hand corner and filling in the necessary data.
+
+A previously added post can be edited.
+
+Every post can be commented on.
+
+# Admin Mode - Schedule Screen
+
+The functionalities in this page work similarly. Clicking on the student list elements or time tables slots will change its color cyclically from
+(white -> red -> green -> blue -> yellow).
+
+Clicking on a student name will change the color of the element depecting to which group they will belong.
+White denotes that the student has not been grouped yet.
+
+Clicking on a slot in the time table will change its color, blocking it for that color group for the week.
+White blocks denote a free slot.

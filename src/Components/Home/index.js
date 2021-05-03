@@ -5,6 +5,7 @@ import f1 from "./../../assets/images/guitarBack.jpg";
 import AddPost from "./AddPost";
 
 const colorChart = {
+  0: "fff",
   1: "#f26157",
   2: "#65b268",
   3: "#8590c9",
@@ -177,6 +178,26 @@ class Home extends Component {
     e.target.href = objectURL;
   }
 
+  addComment(ind, ev) {
+    if (ev.keyCode == 13) {
+      let x = {
+        user: this.props.userName,
+        date: new Date().toGMTString(),
+        line: ev.target.value,
+        group:
+          this.props.isLoggedIn == "admin"
+            ? 0
+            : (ev.target.value.length % 4) + 1,
+      };
+      let y = this.state.data;
+      y[ind].comments.push(x);
+      this.setState({
+        data: y,
+      });
+      ev.target.value = "";
+    }
+  }
+
   render() {
     return (
       <div className="sa-home-w">
@@ -233,7 +254,11 @@ class Home extends Component {
                                   ? f
                                   : URL.createObjectURL(f)
                               }
-                              onClick={(e) => this.zoomPic(e)}
+                              onClick={
+                                f.type && !f.type.includes("image")
+                                  ? null
+                                  : (e) => this.zoomPic(e)
+                              }
                               alt={f.name}
                               key={ind}
                             />
@@ -242,6 +267,7 @@ class Home extends Component {
                                 width: "75px",
                                 fontSize: "s",
                                 textAlign: "center",
+                                cursor: "pointer",
                               }}
                               onClick={(e) => this.downloadFile(e, i, ind)}
                               download
@@ -281,6 +307,7 @@ class Home extends Component {
                     type="text"
                     className="commentsInput"
                     placeholder="Write a comment"
+                    onKeyDown={(ev) => this.addComment(i, ev)}
                   />
                 </div>
               </div>
