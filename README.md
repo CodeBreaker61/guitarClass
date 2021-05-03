@@ -1,6 +1,7 @@
 # Project
 
-A simple dashboard to be used by a guitar instructor and his students
+A simple dashboard to be used by a guitar instructor and his students.
+The App is responsive.
 
 # Installation and Setup
 
